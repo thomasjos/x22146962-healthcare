@@ -10,7 +10,8 @@ phases:
     commands:
       - python --version
       - pylint $CODEBUILD_SRC_DIR/*.py
-      - pylint --disable=C0103 $CODEBUILD_SRC_DIR/Health_Care/*.py
+      - pylint --disable=C0103,F0001 $CODEBUILD_SRC_DIR/Health_Care/*.py
+      - pylint $CODEBUILD_SRC_DIR/Health_Care_app/*.py
 artifacts:
   files:
     - '**/*'
