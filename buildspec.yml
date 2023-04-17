@@ -11,7 +11,7 @@ phases:
     commands:
       - python --version
       - pylint  $CODEBUILD_SRC_DIR/*.py
-      - pylint  $CODEBUILD_SRC_DIR/Health_Care/*.py
+      - pylint  $CODEBUILD_SRC_DIR/cloud_project/Health_Care/Health_Care/*.py
 artifacts:
   files:
     - '**/*'
