@@ -5,12 +5,12 @@ phases:
       python: 3.7
     commands:
       - pip install --upgrade pip
-      # Install dependencies needed for running the static analysis
       - pip install -r requirements.txt pylint
   pre_build:
     commands:
       - python --version
-     
+      - pylint $CODEBUILD_SRC_DIR/*.py
+      - pylint --disable=C0103 $CODEBUILD_SRC_DIR/Health_Care/*.py
 artifacts:
   files:
     - '**/*'
