@@ -1,0 +1,36 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block title %}{{ appointment }}{% endblock %}
+
+{% block content %}
+  <h1 class="text-center mb-5">{{ appointment }}</h1>
+
+  <table class="table">
+    <tr>
+      <th>Patient:</th>
+      <td>{{ appointment.patient }}</td>
+    </tr>
+    <tr>
+      <th>Doctor:</th>
+      <td>{{ appointment.doctor }}</td>
+    </tr>
+    <tr>
+      <th>Date:</th>
+      <td>{{ appointment.date }}</td>
+    </tr>
+    <tr>
+      <th>Time:</th>
+      <td>{{ appointment.time }}</td>
+    </tr>
+    <tr>
+      <th>Created At:</th>
+      <td>{{ appointment.created_at }}</td>
+    </tr>
+    <tr>
+      <th>Updated At:</th>
+      <td>{{ appointment.updated_at }}</td>
+    </tr>
+  </table>
+
+  <a href="{% url 'appointment_edit' pk=appointment.pk %}" class="btn btn-primary">Edit Appointment</a>
+{% endblock %}

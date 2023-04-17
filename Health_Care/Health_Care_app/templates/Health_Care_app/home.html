@@ -1,0 +1,24 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+    
+
+{% block content %}
+<body style="background-image:url('https://www.chetu.com/img/healthcare/hospital-mgmt/sliderbg/hospital-management-banner.jpg'); ">
+    
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to Healthcare Management</h1>
+    <p class="lead">This is a web-based application built using Django that allows you to manage patient information, medical records, appointments, billing, and more.</p>
+    <hr class="my-4">
+    <p>Click on the links below to get started.</p>
+    <p class="lead">
+        <a href="{% url 'patient_list' %}" class="btn btn-primary btn-lg">Patient List</a>
+        <a href="{% url 'medicalrecord_list' %}" class="btn btn-secondary btn-lg">Medical Records</a>
+        <a href="{% url 'appointment_list' %}" class="btn btn-secondary btn-lg">Appointments</a>
+        <a href="{% url 'billing_list' %}" class="btn btn-secondary btn-lg">Billing</a>
+    </p>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block title %}Appointments{% endblock %}
+
+{% block content %}
+  <h1 class="text-center mb-5">Appointments</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Patient</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for appointment in appointments %}
+        <tr>
+          <td>{{ appointment.patient }}</td>
+          <td>{{ appointment.doctor }}</td>
+          <td>{{ appointment.date }}</td>
+          <td>{{ appointment.time }}</td>
+          <td>
+            <a href="{% url 'appointment_detail' pk=appointment.pk %}" class="btn btn-sm btn-primary">View</a>
+            <a href="{% url 'appointment_edit' pk=appointment.pk %}" class="btn btn-sm btn-secondary">Edit</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No appointments found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{% url 'appointment_new' %}" class="btn btn-primary">New Appointment</a>
+{% endblock %}

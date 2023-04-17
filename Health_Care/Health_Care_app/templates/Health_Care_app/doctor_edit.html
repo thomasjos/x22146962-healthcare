@@ -1,0 +1,14 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block title %}{% if form.instance.pk %}Edit Doctor{% else %}New Doctor{% endif %}{% endblock %}
+
+{% block content %}
+  <h1 class="text-center mb-5">{% if form.instance.pk %}Edit Doctor{% else %}New Doctor{% endif %}</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" class="btn btn-primary mt-3" value="Save">
+  </form>
+{% endblock %}

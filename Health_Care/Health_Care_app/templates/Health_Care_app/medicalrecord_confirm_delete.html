@@ -1,0 +1,15 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block content %}
+<h1 class="text-center mb-5">Delete Medical Record</h1>
+
+<p>Are you sure you want to delete {{ record.patient.name }}'s medical record from {{ record.date }}?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-danger" value="Delete">
+  <a href="{% url 'medicalrecord_detail' record.pk %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
+
+

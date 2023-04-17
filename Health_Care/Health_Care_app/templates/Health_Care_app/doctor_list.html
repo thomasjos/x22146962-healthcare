@@ -1,0 +1,36 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block title %}Doctor List{% endblock %}
+
+{% block content %}
+  <h1 class="text-center mb-5">Doctor List</h1>
+
+  <a href="{% url 'doctor_new' %}" class="btn btn-primary mb-3">Add Doctor</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Specialty</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for doctor in doctors %}
+        <tr>
+          <td>{{ doctor.name }}</td>
+          <td>{{ doctor.email }}</td>
+          <td>{{ doctor.phone }}</td>
+          <td>{{ doctor.specialty }}</td>
+          <td><a href="{% url 'doctor_detail' pk=doctor.pk %}" class="btn btn-secondary">View</a></td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5" class="text-center">No doctors found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

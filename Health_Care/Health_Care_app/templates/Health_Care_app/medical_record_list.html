@@ -1,0 +1,39 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block content %}
+<h1 class="text-center mb-5">Medical Records</h1>
+
+<a href="{% url 'medicalrecord_new' %}" class="btn btn-primary mb-3">New Medical Record</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Doctor Name</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in records %}
+    <tr>
+      <td>{{ record.patient.name }}</td>
+      <td>{{ record.doctor.name }}</td>
+      <td>{{ record.date }}</td>
+      <td>{{ record.description }}</td>
+      <td><a href="{% url 'medicalrecord_detail' record.pk %}" class="btn btn-info">View</a></td>
+      <td><a href="{% url 'medicalrecord_edit' record.pk %}" class="btn btn-primary">Edit</a></td>
+      <td>
+        <form method="post" action="{% url 'medicalrecord_delete' record.pk %}">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-danger" value="Delete">
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+

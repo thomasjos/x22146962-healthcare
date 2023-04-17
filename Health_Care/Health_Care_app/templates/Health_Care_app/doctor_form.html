@@ -1,0 +1,12 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block title %}{{ form_title }}{% endblock %}
+
+{% block content %}
+<h1>{{ form_title }}</h1>
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">{{ submit_button }}</button>
+</form>
+{% endblock %}
