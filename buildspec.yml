@@ -10,8 +10,8 @@ phases:
   pre_build:
     commands:
       - python --version
-      - pylint -- $cloud_project/Health_Care*.py
-      # - pylint -- $CODEBUILD_SRC_DIR/Health_Care/Health_Care_app/*.py
+      - pylint  $CODEBUILD_SRC_DIR/*.py
+      - pylint  $CODEBUILD_SRC_DIR/Health_Care/*.py
 artifacts:
   files:
     - '**/*'
