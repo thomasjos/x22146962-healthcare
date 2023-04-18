@@ -1,9 +1,9 @@
 branch-defaults:
   main:
-    environment: HealthCareX22146962tho-env
+    environment: HealthCareX22146962new-env
     group_suffix: null
 global:
-  application_name: HealthCareX22146962th0
+  application_name:  Health_Care
   branch: null
   default_ec2_keyname: null
   default_platform: Python 3.7
