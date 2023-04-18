@@ -1,0 +1,24 @@
+{% extends 'Health_Care_app/base.html' %}
+
+
+{% block content %}
+<h1 class="text-center mb-5">{{ record.patient.name }} - {{ record.date }}</h1>
+
+<div class="row">
+  <div class="col-md-3 font-weight-bold">Patient Name:</div>
+  <div class="col-md-9">{{ record.patient.name }}</div>
+  <div class="col-md-3 font-weight-bold">Doctor Name:</div>
+  <div class="col-md-9">{{ record.doctor.name }}</div>
+  <div class="col-md-3 font-weight-bold">Date:</div>
+  <div class="col-md-9">{{ record.date }}</div>
+  <div class="col-md-3 font-weight-bold">Description:</div>
+  <div class="col-md-9">{{ record.description }}</div>
+</div>
+
+<a href="{% url 'medicalrecord_edit' record.pk %}" class="btn btn-primary mt-3">Edit</a>
+
+<form method="post" action="{% url 'medicalrecord_delete' record.pk %}" class="mt-3">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-danger" value="Delete">
+</form>
+{% endblock %}

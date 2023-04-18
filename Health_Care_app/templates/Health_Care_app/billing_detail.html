@@ -1,0 +1,30 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block title %}Billing Detail{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-5">Billing Detail</h1>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Patient:</th>
+      <td>{{ billing.patient }}</td>
+    </tr>
+    <tr>
+      <th>Date:</th>
+      <td>{{ billing.date }}</td>
+    </tr>
+    <tr>
+      <th>Amount:</th>
+      <td>${{ billing.amount }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<a href="{% url 'billing_edit' billing.pk %}" class="btn btn-primary mt-3">Edit</a>
+<form method="post" action="{% url 'billing_delete' billing.pk %}" class="d-inline">
+  {% csrf_token %}
+  <input type="submit" value="Delete" class="btn btn-danger mt-3">
+</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block title %}{{ patient.name }}{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-5">{{ patient.name }}</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <p><strong>Date of Birth:</strong> {{ patient.date_of_birth }}</p>
+        <p><strong>Gender:</strong> {{ patient.get_gender_display }}</p>
+        <p><strong>Phone Number:</strong> {{ patient.phone_number }}</p>
+        <p><strong>Email Address:</strong> {{ patient.email_address }}</p>
+        <p><strong>Blood Type:</strong> {{ patient.blood_type }}</p>
+    </div>
+</div>
+
+<a href="{% url 'patient_edit' patient.pk %}" class="btn btn-primary mt-3">Edit Patient</a>
+<a href="{% url 'patient_list' %}" class="btn btn-secondary mt-3">Back to Patient List</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'Health_Care_app/base.html' %}
+
+{% block title %}Confirm Delete Billing{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-5">Confirm Delete Billing</h1>
+
+<p>Are you sure you want to delete the billing for "{{ billing.patient }}" on {{ billing.date }}?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Delete" class="btn btn-danger">
+  <a href="{% url 'billing_detail' billing.pk %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
